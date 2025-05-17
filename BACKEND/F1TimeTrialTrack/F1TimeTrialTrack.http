@@ -1,0 +1,6 @@
+@F1TimeTrialTrack_HostAddress = http://localhost:5081
+
+GET {{F1TimeTrialTrack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
