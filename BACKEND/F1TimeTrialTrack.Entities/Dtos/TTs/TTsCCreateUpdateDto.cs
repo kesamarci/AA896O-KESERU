@@ -8,7 +8,6 @@ namespace F1TimeTrialTrack.Entities.Dtos.TTs
 {
     public class TTsCCreateUpdateDto
     {
-
         public required string TrackName { get; set; } = "";
         public required string Car { get; set; } = "";
         public required string Driver { get; set; } = "";

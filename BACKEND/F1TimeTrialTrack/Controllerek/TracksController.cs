@@ -17,7 +17,7 @@ namespace F1TimeTrialTrack.Controllerek
             this.logic = logic;
         }
         [HttpPost]
-        [Authorize]
+       // [Authorize]
         public void AddTrack(TracksCreateUpdateDto track)
         {
             logic.AddTrack(track);
@@ -28,13 +28,13 @@ namespace F1TimeTrialTrack.Controllerek
             return logic.GetAllTracks();
         }
         [HttpDelete("{id}")]
-        [Authorize(Roles ="Admin")]
+       // [Authorize(Roles ="Admin")]
         public void DeleteTrack(string id)
         {
             logic.DeleteTrack(id);
         }
         [HttpPut("{id}")]
-        [Authorize]
+       // [Authorize]
         public void UpdateTrack(string id, [FromBody] TracksCreateUpdateDto track)
         {
             logic.UpdateTrack(id, track);

@@ -27,7 +27,7 @@ namespace F1TimeTrialTrack.Controllerek
         }
 
         [HttpGet("Admin+/{userid}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task GetAdmin(string userid)
         {
             var user = await userManager.FindByIdAsync(userid);
@@ -43,7 +43,7 @@ namespace F1TimeTrialTrack.Controllerek
         }
 
         [HttpGet("Admin-/{userid}")]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task RemoveAdmin(string userid)
         {
             var user = await userManager.FindByIdAsync(userid);

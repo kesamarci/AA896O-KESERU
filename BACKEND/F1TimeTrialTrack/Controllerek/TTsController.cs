@@ -16,13 +16,13 @@ namespace F1TimeTrialTrack.Controllerek
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public void AddTTs(TTsCCreateUpdateDto tTs)
         {
             logic.AddTTs(tTs);
         }
         [HttpGet]
-        public IEnumerable<TTsViewDto> GetAllTTs()
+        public IEnumerable<TTsShortViewDto> GetAllTTs()
         {
             return logic.GetAllTTs();
         }
@@ -35,14 +35,14 @@ namespace F1TimeTrialTrack.Controllerek
 
 
         [HttpPut("{id}")]
-        [Authorize]
+       // [Authorize]
         public void UpdateTTs(string id,[FromBody] TTsCCreateUpdateDto tTs)
         {
             logic.UpdateTTs(id, tTs);
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles ="Admin")]
+       // [Authorize(Roles ="Admin")]
         public void DeleteTTs(string id)
         {
             logic.DeleteTTs(id);

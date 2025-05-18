@@ -59,6 +59,9 @@ namespace F1TimeTrialTrack.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TimeInMillis")
+                        .HasColumnType("int");
+
                     b.Property<string>("Tire")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

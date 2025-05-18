@@ -1,4 +1,5 @@
-﻿using System;
+﻿using F1TimeTrialTrack.Entities.Dtos.TTsRating;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,12 @@ namespace F1TimeTrialTrack.Entities.Dtos.TTs
         public string Assist { get; set; } = "";
         public string Setup { get; set; } = "";
         public string Wheather { get; set; } = "";
-        public double AvaerageRating { get; set; } = 0;
+        public int TimeInMillis { get; set; }
+
+        public IEnumerable<TTsRatingViewDto> Ratings { get; set; }
+        public double AverageRating { get; set; }
+        public int RatingCount { get; set; }
+
+
     }
 }

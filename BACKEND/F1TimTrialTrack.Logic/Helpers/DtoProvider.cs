@@ -35,7 +35,24 @@ namespace F1TimeTrialTrack.Logic.Helpers
                 {
                     dest.IsAdmin = userManager.IsInRoleAsync(src, "Admin").Result;
                 });
-                cfg.CreateMap<Tracks, TrackViewDto>();
+                cfg.CreateMap<Tracks, TrackViewDto>()
+                .AfterMap((src, dest) =>
+                {
+                    dest.Ratings = src.TracksRatings?
+                        .Select(r => new TrackRatingViewDto
+                        {
+                            Rating = r.Rating,
+                            Comment = r.Comment,
+                            UserFullName = userManager.Users.FirstOrDefault(u => u.Id == r.UserId) != null
+                                ? userManager.Users.First(u => u.Id == r.UserId).LastName + " " + userManager.Users.First(u => u.Id == r.UserId).FirstName
+                                 : "Ismeretlen"
+                        }).ToList();    
+
+                    dest.RatingCount = src.TracksRatings?.Count ?? 0;
+                    dest.AverageRating = src.TracksRatings?.Count > 0
+                        ? src.TracksRatings.Average(r => r.Rating) : 0;
+                });
+
                 cfg.CreateMap<TracksCreateUpdateDto, Tracks>();
                 cfg.CreateMap<TrackFile, TrackFileViewDto>();
                 cfg.CreateMap<TrackFileCreateDto, TrackFile>();
@@ -46,12 +63,34 @@ namespace F1TimeTrialTrack.Logic.Helpers
                     var user = userManager.Users.First(u => u.Id == src.UserId);
                     dest.UserFullName = user.LastName! + " " + user.FirstName;
                 });
-
+                
                 cfg.CreateMap<TTs, TTsViewDto>()
                 .AfterMap((src, dest) =>
                 {
-                    dest.AvaerageRating = src.TTsRatings?.Count > 0 ? src.TTsRatings.Average(r => r.Rating) : 0;
+                    dest.Ratings = src.TTsRatings
+                        .Select(r => new TTsRatingViewDto
+                        {
+                            Rating = r.Rating,
+                            Comment = r.Comment,
+                            UserFullName = userManager.Users.FirstOrDefault(u => u.Id == r.UserId) != null
+                                ? userManager.Users.First(u => u.Id == r.UserId).LastName + " " + userManager.Users.First(u => u.Id == r.UserId).FirstName: "Ismeretlen"
+                        }).ToList();
+
+                    dest.RatingCount = src.TTsRatings?.Count ?? 0;
+                    dest.AverageRating = src.TTsRatings?.Count > 0
+                        ? src.TTsRatings.Average(r => r.Rating) : 0;
                 });
+
+                cfg.CreateMap<TTs, TTsShortViewDto>()
+                .AfterMap((src, dest) =>
+                {
+                    dest.AvaerageRating = src.TTsRatings?.Count > 0 ? src.TTsRatings.Average(r => r.Rating) : 0;
+                    dest.TimeInMillis = src.TimeInMillis;
+
+
+                });
+
+
                 cfg.CreateMap<TTsCCreateUpdateDto, TTs>();
                 cfg.CreateMap<TTsRatingCreateDto, TTsRating>();
                 cfg.CreateMap<TTsRating, TTsRatingViewDto>()

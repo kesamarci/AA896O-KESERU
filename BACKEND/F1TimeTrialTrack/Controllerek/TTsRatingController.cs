@@ -9,7 +9,7 @@ namespace F1TimeTrialTrack.Controllerek
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class TTsRatingController : ControllerBase
     {
         TTsRatingLogic logic;
@@ -25,7 +25,10 @@ namespace F1TimeTrialTrack.Controllerek
         public async Task AddRating(TTsRatingCreateDto dto)
         {
             var user = await userManager.GetUserAsync(User);
-            logic.AddRating(dto, user.Id);
+            var userId = user?.Id ?? "dummy-user-id"; // vagy egy konstans teszt userId
+
+            logic.AddRating(dto, userId);
         }
+
     }
 }

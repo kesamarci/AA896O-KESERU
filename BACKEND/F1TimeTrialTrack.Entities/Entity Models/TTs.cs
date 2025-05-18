@@ -11,19 +11,24 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
 {
     public class TTs : IIdEntity
     {
-        public TTs( string trackName, string car, string driver, string time, DateTime date, string platform, string tire, string assist, string setup, string wheather)
+        public TTs( string trackName, string car, string driver, string time, int timeInMillis, DateTime date, string platform, string tire, string assist, string setup, string wheather)
         {
             Id = Guid.NewGuid().ToString();
             TrackName = trackName;
             Car = car;
             Driver = driver;
             Time = time;
+            TimeInMillis = timeInMillis;
             Date = date;
             Platform = platform;
             Tire = tire;
             Assist = assist;
             Setup = setup;
             Wheather = wheather;
+        }
+        public TTs()
+        {
+            
         }
         [StringLength(50)]
         [Key]
@@ -33,6 +38,7 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
         public string Car { get; set; }
         public string Driver { get; set; }
         public string Time { get; set; }
+        public int TimeInMillis { get; set; }
         public DateTime Date { get; set; }
         public string Platform { get; set; }
         public string Tire { get; set; }
