@@ -32,6 +32,11 @@ export class TtService {
     this.tts = data;
   });
   }
+  getTtById(id: string, callback: (data: Tt) => void): void {
+  this.http.get<Tt>(this.apiBaseUrl + 'TTs/' + id).subscribe((data) => {
+    callback(data);
+  });
+}
 
   getTtDetailsById(id: string, callback: (data: Ttdetails) => void): void {
   this.http.get<Ttdetails>(this.apiBaseUrl + 'TTs/' + id).subscribe(data => {
@@ -41,9 +46,12 @@ export class TtService {
 
   
 
-  updateTt(id: string, tt: Tt): void {
-    this.http.put(this.apiBaseUrl + 'TTs/' + id, tt).subscribe(() => {
-      this.loadTts();
+  updateTt( tt: Tt): void {
+    this.http.put(this.apiBaseUrl + 'TTs/' + tt.id, tt).subscribe(() => {
+       const index = this.tts.findIndex(x => x.id === tt.id);
+    if (index !== -1) {
+      this.tts[index] = tt;
+    }
     });
   }
 

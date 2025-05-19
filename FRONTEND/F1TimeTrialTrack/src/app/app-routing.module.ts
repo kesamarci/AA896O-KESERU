@@ -4,12 +4,14 @@ import { TtListComponent } from './tts/tt-list/tt-list.component';
 import { TtAddComponent } from './tts/tt-add/tt-add.component';
 import { TtDeleteComponent } from './tts/tt-delete/tt-delete.component';
 import { TtListIdComponent } from './tts/tt-list-id/tt-list-id.component';
+import { TtEditComponent } from './tts/tt-edit/tt-edit.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
   { path: 'tt-add', component: TtAddComponent },
   { path: '', redirectTo: '/tts', pathMatch: 'full' },
   { path: 'tt-details', component: TtListIdComponent }, 
+  { path: 'tt-edit/:id', component: TtEditComponent }, 
 ]
 
 @NgModule({

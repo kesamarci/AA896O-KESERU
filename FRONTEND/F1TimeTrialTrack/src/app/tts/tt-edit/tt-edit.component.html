@@ -1,1 +1,63 @@
-<p>tt-edit works!</p>
+<div class="container mt-4">
+  <div class="mb-3">
+    <label for="inputId" class="form-label">Írd be az ID-t, amit szerkeszteni szeretnél:</label>
+    <input id="inputId" type="text" class="form-control" [(ngModel)]="id" placeholder="ID" />
+    <button class="btn btn-primary mt-2" (click)="loadTtById()">Betöltés</button>
+  </div>
+
+  <div *ngIf="tt" class="card p-4 mt-4 shadow-sm">
+    <h3 class="mb-4">TT szerkesztése</h3>
+
+    <div class="mb-3">
+      <label class="form-label">Pálya:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.trackName" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Autó:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.car" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Versenyző:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.driver" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Idő:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.time" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Dátum:</label>
+      <input type="date" class="form-control" [(ngModel)]="tt.date" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Platform:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.platform" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Gumi:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.tire" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Segítség:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.assist" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Setup:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.setup" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Időjárás:</label>
+      <input type="text" class="form-control" [(ngModel)]="tt.wheather" />
+    </div>
+
+    <button class="btn btn-success" (click)="onUpdate()">Mentés</button>
+  </div>
+</div>
