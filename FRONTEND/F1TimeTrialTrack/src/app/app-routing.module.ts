@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TtListComponent } from './tts/tt-list/tt-list.component';
+import { TtAddComponent } from './tts/tt-add/tt-add.component';
 
-const routes: Routes = [];
+const routes: Routes = [ 
+  { path: 'tts', component: TtListComponent },
+  { path: 'tt-add', component: TtAddComponent },
+  { path: '', redirectTo: '/tts', pathMatch: 'full' }, 
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
