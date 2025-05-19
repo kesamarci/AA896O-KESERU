@@ -2,6 +2,10 @@
 
 <form (ngSubmit)="onSubmit()" #ttForm="ngForm">
   <div class="mb-3">
+    <label class="form-label">ID</label>
+    <input type="text" class="form-control" [(ngModel)]="newTt.id" name="trackName" required />
+  </div>
+  <div class="mb-3">
     <label class="form-label">Track Name</label>
     <input type="text" class="form-control" [(ngModel)]="newTt.trackName" name="trackName" required />
   </div>

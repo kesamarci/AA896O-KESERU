@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Tt } from '../models/tt';
 import { HttpClient } from '@angular/common/http';
+import { Ttdetails } from '../models/ttdetails';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class TtService {
   apiBaseUrl: string = 'https://localhost:7263/api/';
   tts:Tt[]=[] ;
+  ttsdetails:Ttdetails[]=[];
+  selectedTtdetails?:Ttdetails;
   selectedTt?:Tt;
   constructor(private http: HttpClient) { 
     this.loadTts();
@@ -30,11 +33,11 @@ export class TtService {
   });
   }
 
-  getTtById(id: string): void {
-    this.http.get<Tt>(this.apiBaseUrl + 'TTs/' + id).subscribe(data => {
-      this.selectedTt = data;
-    });
-  }
+  getTtDetailsById(id: string, callback: (data: Ttdetails) => void): void {
+  this.http.get<Ttdetails>(this.apiBaseUrl + 'TTs/' + id).subscribe(data => {
+    callback(data);
+  });
+}
 
   
 

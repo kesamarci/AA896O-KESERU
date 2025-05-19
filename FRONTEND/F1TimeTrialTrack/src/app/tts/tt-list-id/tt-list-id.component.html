@@ -1,0 +1,30 @@
+<h2>TT Részletek keresése ID alapján</h2>
+
+<input [(ngModel)]="id" placeholder="TT ID" />
+<button (click)="loadTtDetailsById(id)">Keresés</button>
+
+<div *ngIf="ttdetails">
+  <h3>Talált TT</h3>
+  <p><strong>Pálya:</strong> {{ ttdetails.trackName }}</p>
+  <p><strong>Autó:</strong> {{ ttdetails.car }}</p>
+  <p><strong>Versenyző:</strong> {{ ttdetails.driver }}</p>
+  <p><strong>Idő:</strong> {{ ttdetails.time }}</p>
+  <p><strong>Dátum:</strong> {{ ttdetails.date | date:'medium' }}</p>
+  <p><strong>Platform:</strong> {{ ttdetails.platform }}</p>
+  <p><strong>Gumi:</strong> {{ ttdetails.tire }}</p>
+  <p><strong>Segítség:</strong> {{ ttdetails.assist }}</p>
+  <p><strong>Setup:</strong> {{ ttdetails.setup }}</p>
+  <p><strong>Időjárás:</strong> {{ ttdetails.wheather }}</p>
+  
+  <p><strong>Átlag értékelés:</strong> {{ ttdetails.averageRating }}</p>
+  <p><strong>Értékelések száma:</strong> {{ ttdetails.ratingCount }}</p>
+
+  <div *ngIf="ttdetails.ratings && ttdetails.ratings.length > 0">
+    <h4>Értékelések:</h4>
+    <ul>
+      <li *ngFor="let rating of ttdetails.ratings">
+        {{ rating.rating }} - "{{ rating.comment }}"
+      </li>
+    </ul>
+  </div>
+</div>

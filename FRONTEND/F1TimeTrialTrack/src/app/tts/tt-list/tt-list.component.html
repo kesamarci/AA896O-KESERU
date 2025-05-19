@@ -2,6 +2,7 @@
 
 <div *ngFor="let tt of tts" class="tt-card">
   <h3>{{ tt.trackName }} - {{ tt.car }}</h3>
+  <p>ID: {{tt.id}}</p>
   <p>Pilóta: {{ tt.driver }}</p>
   <p>Idő: {{ tt.time }} ({{ tt.timeInMillis }} ms)</p>
   <p>Dátum: {{ tt.date }}</p>
@@ -10,4 +11,5 @@
   <p>Segítség: {{ tt.assist }}</p>
   <p>Beállítás: {{ tt.setup }}</p>
   <p>Időjárás: {{ tt.wheather }}</p>
+  
 </div>
