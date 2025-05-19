@@ -7,6 +7,7 @@ import { TtAddComponent } from './tts/tt-add/tt-add.component';
 import { TtListComponent } from './tts/tt-list/tt-list.component';
 import { TtEditComponent } from './tts/tt-edit/tt-edit.component';
 import { TtDeleteComponent } from './tts/tt-delete/tt-delete.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TtDeleteComponent } from './tts/tt-delete/tt-delete.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

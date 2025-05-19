@@ -11,4 +11,5 @@ export class Tt {
     assist: string = '';
     setup: string = '';
     wheather: string = '';
+    constructor(){}
 }
