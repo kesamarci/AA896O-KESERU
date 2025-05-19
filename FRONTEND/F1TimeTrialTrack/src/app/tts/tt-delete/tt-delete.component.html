@@ -1,1 +1,8 @@
-<p>tt-delete works!</p>
+<div class="container mt-4">
+  <h3>TT törlése</h3>
+  <div class="mb-3">
+    <label for="idInput" class="form-label">ID</label>
+    <input type="text" class="form-control" id="idInput" [(ngModel)]="id" placeholder="Add meg a törölni kívánt ID-t" />
+  </div>
+  <button class="btn btn-danger" (click)="onDelete()">Törlés</button>
+</div>

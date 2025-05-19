@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'tt-add', component: TtAddComponent },
   { path: '', redirectTo: '/tts', pathMatch: 'full' },
   { path: 'tt-details', component: TtListIdComponent }, 
-  { path: 'tt-edit/:id', component: TtEditComponent }, 
+  { path: 'tt-edit', component: TtEditComponent }, 
+  {path:'tt-delete',component:TtDeleteComponent},
 ]
 
 @NgModule({

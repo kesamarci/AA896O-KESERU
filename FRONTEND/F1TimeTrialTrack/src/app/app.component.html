@@ -1,14 +1,30 @@
-<div class="container-fluid mt-4">
-  <!-- ide jön a tartalom -->
-
-<nav>
-  <a routerLink="/tts">Lista</a> |
-  <a routerLink="/tt-add">Új TT hozzáadása</a> | 
-  <a routerLink="/tt-details">ListaID</a> |   
-   <a [routerLink]="['/tt-edit', 'ittAzId']">Editálás</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">TT App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tts" routerLinkActive="active">Lista</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tt-add" routerLinkActive="active">Új hozzáadása</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tt-edit" routerLinkActive="active">Szerkesztés</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tt-delete" routerLinkActive="active">Törlés</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<hr />
-
-<router-outlet></router-outlet>
+<!-- Itt jön majd az aktuális komponens nézet -->
+<div class="container mt-4">
+  <router-outlet></router-outlet>
 </div>
