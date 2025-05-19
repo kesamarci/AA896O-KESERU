@@ -1,1 +1,17 @@
-<p>tt-add works!</p>
+<h2>Add New TT</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Track Name</label>
+    <input [(ngModel)]="newTt.trackName" name="trackName" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Car</label>
+    <input [(ngModel)]="newTt.car" name="car" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Driver</label>
+    <input [(ngModel)]="newTt.driver" name="driver" class="form-control" required />
+  </div>
+  <!-- Add többi mezőt is, pl. time, date stb. -->
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
