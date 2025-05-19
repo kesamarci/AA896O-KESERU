@@ -10,15 +10,24 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrl: './tt-edit.component.sass'
 })
 export class TtEditComponent {
-  tt: Tt =new Tt();
-  id:string='';
- constructor(private ttService: TtService,private router:Router)
- {
-   
- }
- 
-   
-    loadTtById(): void {
+  tt: Tt = new Tt();
+  id: string = '';
+  isLoadedFromUrl: boolean = false;
+
+  constructor(
+    private ttService: TtService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    const idFromUrl = this.route.snapshot.paramMap.get('id');
+    if (idFromUrl) {
+      this.isLoadedFromUrl = true;
+      this.id = idFromUrl;
+      this.loadTtById();
+    }
+  }
+
+  loadTtById(): void {
     if (!this.id) {
       alert('Kérlek adj meg egy érvényes ID-t!');
       return;
@@ -29,7 +38,8 @@ export class TtEditComponent {
   }
 
   onUpdate(): void {
-    this.ttService.updateTt(this.tt);
-    this.router.navigate(['/tts']);
-  }
+  this.ttService.updateTt(this.tt);
+  this.router.navigate(['/tts']);
 }
+}
+

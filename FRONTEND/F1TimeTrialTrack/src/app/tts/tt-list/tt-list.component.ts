@@ -15,7 +15,9 @@ constructor(private ttService:TtService)
 
 }
 loadTts(): void {
-    this.ttService.getAllTts(); 
+    this.ttService.getAllTts((data)=>{
+      this.tts=data;
+    }); 
     this.tts = this.ttService.tts; 
 }
 }

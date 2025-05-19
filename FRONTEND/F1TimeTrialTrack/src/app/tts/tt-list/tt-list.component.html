@@ -1,15 +1,54 @@
 <button (click)="loadTts()">TT Lista betöltése</button>
 
-<div *ngFor="let tt of tts" class="tt-card">
-  <h3>{{ tt.trackName }} - {{ tt.car }}</h3>
-  <p>ID: {{tt.id}}</p>
-  <p>Pilóta: {{ tt.driver }}</p>
-  <p>Idő: {{ tt.time }} ({{ tt.timeInMillis }} ms)</p>
-  <p>Dátum: {{ tt.date }}</p>
-  <p>Platform: {{ tt.platform }}</p>
-  <p>Gumi: {{ tt.tire }}</p>
-  <p>Segítség: {{ tt.assist }}</p>
-  <p>Beállítás: {{ tt.setup }}</p>
-  <p>Időjárás: {{ tt.wheather }}</p>
-  
+<div class="container my-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Time Trial Lista</h4>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Pálya</th>
+              <th>Autó</th>
+              <th>Versenyző</th>
+              <th>Idő</th>
+              <th>Dátum</th>
+              <th>Platform</th>
+              <th>Gumi</th>
+              <th>Assziszt</th>
+              <th>Setup</th>
+              <th>Időjárás</th>
+              <th>Idő (ms)</th>
+              <th>IdőÁtlag </th>
+              <th>Műveletek</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tt of tts">
+              <td>{{ tt.id }}</td>
+              <td>{{ tt.trackName }}</td>
+              <td>{{ tt.car }}</td>
+              <td>{{ tt.driver }}</td>
+              <td>{{ tt.time }}</td>
+              <td>{{ tt.date | date: 'short' }}</td>
+              <td>{{ tt.platform }}</td>
+              <td>{{ tt.tire }}</td>
+              <td>{{ tt.assist }}</td>
+              <td>{{ tt.setup }}</td>
+              <td>{{ tt.wheather }}</td>
+              <td>{{ tt.timeInMillis }}</td>
+              <td>{{ tt.averageTime }}</td>
+              <td>
+                <a [routerLink]="['/tt-details', tt.id]" class="btn btn-sm btn-outline-primary me-1">Részletek</a>
+                <a [routerLink]="['/tt-edit', tt.id]" class="btn btn-sm btn-outline-warning">Szerkesztés</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

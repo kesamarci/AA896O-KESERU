@@ -26,12 +26,16 @@ export class TtService {
     });
   }
 
-  getAllTts(): void {
-  // Ez is lehet külön, ha máshol kell újratölteni
+  getAllTts(callback: (data: Tt[]) => void): void {
   this.http.get<Tt[]>(this.apiBaseUrl + 'TTs').subscribe(data => {
-    this.tts = data;
+    const tts = data.map(item => {
+      const tt = new Tt();
+      Object.assign(tt, item);
+      return tt;
+    });
+    callback(tts);
   });
-  }
+}
   getTtById(id: string, callback: (data: Tt) => void): void {
   this.http.get<Tt>(this.apiBaseUrl + 'TTs/' + id).subscribe((data) => {
     callback(data);
@@ -46,14 +50,15 @@ export class TtService {
 
   
 
-  updateTt( tt: Tt): void {
-    this.http.put(this.apiBaseUrl + 'TTs/' + tt.id, tt).subscribe(() => {
-       const index = this.tts.findIndex(x => x.id === tt.id);
+ updateTt(tt: Tt, callback?: () => void): void {
+  this.http.put(this.apiBaseUrl + 'TTs/' + tt.id, tt).subscribe(() => {
+    const index = this.tts.findIndex(x => x.id === tt.id);
     if (index !== -1) {
       this.tts[index] = tt;
     }
-    });
-  }
+    if (callback) callback(); // csak ha meg van adva
+  });
+}
 
   deleteTt(id: string): void {
     this.http.delete(this.apiBaseUrl + 'TTs/' + id).subscribe(() => {

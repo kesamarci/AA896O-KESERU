@@ -11,5 +11,6 @@ export class Tt {
     assist: string = '';
     setup: string = '';
     wheather: string = '';
+    averageTime:number=0;
     constructor(){}
 }

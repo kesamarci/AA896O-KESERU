@@ -12,9 +12,11 @@ const routes: Routes = [
   { path: 'tt-add', component: TtAddComponent },
   { path: '', redirectTo: '/tts', pathMatch: 'full' },
   { path: 'tt-details', component: TtListIdComponent }, 
+  { path: 'tt-details/:id', component: TtListIdComponent }, 
   { path: 'tt-edit', component: TtEditComponent }, 
+  { path: 'tt-edit/:id', component: TtEditComponent }, 
   {path:'tt-delete',component:TtDeleteComponent},
-   { path: 'tt-rating', component: TtRatingComponent },
+  { path: 'tt-rating', component: TtRatingComponent },
 ]
 
 @NgModule({
