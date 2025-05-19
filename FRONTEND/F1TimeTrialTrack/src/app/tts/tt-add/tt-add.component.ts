@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
   styleUrl: './tt-add.component.sass'
 })
 export class TtAddComponent {
+   platforms: string[] = ['PC', 'PlayStation', 'Xbox'];
+  tires: string[] = ['Soft', 'Medium', 'Hard', 'Wet'];
+  assists: string[] = ['None', 'Medium', 'Full'];
+  setups: string[] = ['Default', 'Custom'];
+  wheathers: string[] = ['Clear', 'Rainy', 'Overcast'];
   newTt:Tt=new Tt();
   constructor(private ttService:TtService,private router: Router)
   {}

@@ -1,17 +1,65 @@
 <h2>Add New TT</h2>
-<form (ngSubmit)="onSubmit()">
+
+<form (ngSubmit)="onSubmit()" #ttForm="ngForm">
   <div class="mb-3">
     <label class="form-label">Track Name</label>
-    <input [(ngModel)]="newTt.trackName" name="trackName" class="form-control" required />
+    <input type="text" class="form-control" [(ngModel)]="newTt.trackName" name="trackName" required />
   </div>
+
   <div class="mb-3">
     <label class="form-label">Car</label>
-    <input [(ngModel)]="newTt.car" name="car" class="form-control" required />
+    <input type="text" class="form-control" [(ngModel)]="newTt.car" name="car" required />
   </div>
+
   <div class="mb-3">
     <label class="form-label">Driver</label>
-    <input [(ngModel)]="newTt.driver" name="driver" class="form-control" required />
+    <input type="text" class="form-control" [(ngModel)]="newTt.driver" name="driver" required />
   </div>
-  <!-- Add többi mezőt is, pl. time, date stb. -->
-  <button type="submit" class="btn btn-success">Save</button>
+
+  <div class="mb-3">
+    <label class="form-label">Time</label>
+    <input type="text" class="form-control" [(ngModel)]="newTt.time" name="time" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date</label>
+    <input type="date" class="form-control" [(ngModel)]="newTt.date" name="date" required />
+  </div>
+
+  <div class="mb-3">
+  <label class="form-label">Platform</label>
+  <select class="form-select" [(ngModel)]="newTt.platform" name="platform" required>
+    <option *ngFor="let p of platforms" [value]="p">{{ p }}</option>
+  </select>
+</div>
+
+ <div class="mb-3">
+  <label class="form-label">Tire</label>
+  <select class="form-select" [(ngModel)]="newTt.tire" name="tire">
+    <option *ngFor="let t of tires" [value]="t">{{ t }}</option>
+  </select>
+</div>
+
+  <div class="mb-3">
+  <label class="form-label">Assist</label>
+  <select class="form-select" [(ngModel)]="newTt.assist" name="assist">
+    <option *ngFor="let a of assists" [value]="a">{{ a }}</option>
+  </select>
+</div>
+
+  <div class="mb-3">
+  <label class="form-label">Setup</label>
+  <select class="form-select" [(ngModel)]="newTt.setup" name="setup">
+    <option *ngFor="let s of setups" [value]="s">{{ s }}</option>
+  </select>
+</div>
+
+  <div class="mb-3">
+  <label class="form-label">Wheather</label>
+  <select class="form-select" [(ngModel)]="newTt.wheather" name="wheather">
+    <option *ngFor="let w of wheathers" [value]="w">{{ w }}</option>
+  </select>
+</div>
+
+  <button type="submit" class="btn btn-success">Add TT</button>
 </form>
