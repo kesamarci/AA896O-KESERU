@@ -8,7 +8,11 @@ import { HttpClient } from '@angular/common/http';
 export class TtRatingService {
   apiBaseUrl: string = 'https://localhost:7263/api/';
   constructor(private http:HttpClient) { }
-  addRating(rating: Ttrating): void {
-    this.http.post(this.apiBaseUrl + 'TTsRating', rating).subscribe();
-  }
+
+  addRating(rating: Ttrating, callback: (response: any) => void): void {
+  this.http.post(this.apiBaseUrl + 'TTsRating', rating).subscribe({
+    next: (res) => callback(res),
+    error: (err) => callback(err)
+  });
+}
 }

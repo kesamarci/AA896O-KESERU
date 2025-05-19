@@ -10,6 +10,7 @@ import { TtDeleteComponent } from './tts/tt-delete/tt-delete.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TtListIdComponent } from './tts/tt-list-id/tt-list-id.component';
+import { TtRatingComponent } from './tts/tt-rating/tt-rating.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TtListIdComponent } from './tts/tt-list-id/tt-list-id.component';
     TtListComponent,
     TtEditComponent,
     TtDeleteComponent,
-    TtListIdComponent
+    TtListIdComponent,
+    TtRatingComponent
   ],
   imports: [
     BrowserModule,
