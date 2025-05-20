@@ -10,7 +10,10 @@ export class TrackRatingService {
   constructor(private http:HttpClient) { 
 
   }
-   addRating(rating: Trackrating): void {
-    this.http.post(this.apiBaseUrl + 'TracksRating', rating).subscribe();
+addRating(rating: Trackrating, callback: (response: any) => void): void {
+  this.http.post(this.apiBaseUrl + 'TracksRating', rating).subscribe({
+    next: (res) => callback(res),
+    error: (err) => callback(err)
+  });
 }
 }

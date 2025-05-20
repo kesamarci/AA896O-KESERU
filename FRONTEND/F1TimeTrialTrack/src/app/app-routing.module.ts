@@ -11,6 +11,8 @@ import { TrackListComponent } from './tracks/track-list/track-list.component';
 import { Trackdetails } from './models/trackdetails';
 import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.component';
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
+import { TrackDeleteComponent } from './tracks/track-delete/track-delete.component';
+import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'track-details/:id', component: TrackListIdComponent },
   { path: 'track-edit', component: TrackEditComponent },
   { path: 'track-edit/:id', component: TrackEditComponent },
+  { path: 'track-delete', component: TrackDeleteComponent },
+  { path: 'track-rating', component: TrackRatingComponent },
 
 ]
 

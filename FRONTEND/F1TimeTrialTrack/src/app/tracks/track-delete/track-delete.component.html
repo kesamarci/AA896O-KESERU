@@ -1,1 +1,13 @@
-<p>track-delete works!</p>
+<div class="container mt-4">
+  <h3>Track törlése</h3>
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="idInput"
+      [(ngModel)]="id"
+      placeholder="Add meg a törölni kívánt ID-t"
+    />
+  </div>
+  <button class="btn btn-danger" (click)="onDelete()">Törlés</button>
+</div>
