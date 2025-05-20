@@ -10,6 +10,7 @@ import { TrackAddComponent } from './tracks/track-add/track-add.component';
 import { TrackListComponent } from './tracks/track-list/track-list.component';
 import { Trackdetails } from './models/trackdetails';
 import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.component';
+import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'tracks', component: TrackListComponent },
   { path: 'track-details', component: TrackListIdComponent },
   { path: 'track-details/:id', component: TrackListIdComponent },
-
+  { path: 'track-edit', component: TrackEditComponent },
+  { path: 'track-edit/:id', component: TrackEditComponent },
 
 ]
 

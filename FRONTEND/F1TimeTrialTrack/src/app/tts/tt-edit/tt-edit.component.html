@@ -5,7 +5,7 @@
     <button class="btn btn-primary mt-2" (click)="loadTtById()">Betöltés</button>
   </div>
 
-  <div *ngIf="tt" class="card p-4 mt-4 shadow-sm">
+  <div *ngIf="tt && tt.id" class="card p-4 mt-4 shadow-sm">
     <h3 class="mb-4">TT szerkesztése</h3>
 
     <div class="mb-3">

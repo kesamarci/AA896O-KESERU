@@ -1,1 +1,23 @@
-<p>track-edit works!</p>
+<div class="container mt-4">
+  <div class="mb-3">
+    <label for="inputId" class="form-label">Írd be az ID-t, amit szerkeszteni szeretnél:</label>
+    <input id="inputId" type="text" class="form-control" [(ngModel)]="id" placeholder="ID" />
+    <button class="btn btn-primary mt-2" (click)="loadTrackById()">Betöltés</button>
+  </div>
+
+  <div *ngIf="track && track.id" class="card p-4 mt-4 shadow-sm">
+    <h3 class="mb-4">Track szerkesztése</h3>
+
+    <div class="mb-3">
+      <label class="form-label">Név:</label>
+      <input type="text" class="form-control" [(ngModel)]="track.name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Hossz:</label>
+      <input type="number" class="form-control" [(ngModel)]="track.length" />
+    </div>
+
+    <button class="btn btn-success" (click)="onUpdate()">Mentés</button>
+  </div>
+</div>
