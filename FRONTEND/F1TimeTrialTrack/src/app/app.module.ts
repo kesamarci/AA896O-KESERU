@@ -11,6 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TtListIdComponent } from './tts/tt-list-id/tt-list-id.component';
 import { TtRatingComponent } from './tts/tt-rating/tt-rating.component';
+import { TrackAddComponent } from './tracks/track-add/track-add.component';
+import { TrackListComponent } from './tracks/track-list/track-list.component';
+import { TrackDeleteComponent } from './tracks/track-delete/track-delete.component';
+import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.component';
+import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
+import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { TtRatingComponent } from './tts/tt-rating/tt-rating.component';
     TtEditComponent,
     TtDeleteComponent,
     TtListIdComponent,
-    TtRatingComponent
+    TtRatingComponent,
+    TrackAddComponent,
+    TrackListComponent,
+    TrackDeleteComponent,
+    TrackListIdComponent,
+    TrackEditComponent,
+    TrackRatingComponent
   ],
   imports: [
     BrowserModule,
