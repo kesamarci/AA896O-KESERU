@@ -7,6 +7,7 @@ import { TtListIdComponent } from './tts/tt-list-id/tt-list-id.component';
 import { TtEditComponent } from './tts/tt-edit/tt-edit.component';
 import { TtRatingComponent } from './tts/tt-rating/tt-rating.component';
 import { TrackAddComponent } from './tracks/track-add/track-add.component';
+import { TrackListComponent } from './tracks/track-list/track-list.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'tt-edit/:id', component: TtEditComponent }, 
   {path:'tt-delete',component:TtDeleteComponent},
   { path: 'tt-rating', component: TtRatingComponent },
-  { path: 'track-create', component: TrackAddComponent },
+  { path: 'track-add', component: TrackAddComponent },
+  { path: 'tracks', component: TrackListComponent },
 ]
 
 @NgModule({

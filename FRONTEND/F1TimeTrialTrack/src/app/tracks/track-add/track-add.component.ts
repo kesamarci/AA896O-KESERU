@@ -16,7 +16,7 @@ export class TrackAddComponent {
 
   save(): void {
     this.trackService.addTrack(this.track);
-    this.router.navigate(['/track-list']);
+    this.router.navigate(['/tracks']);
   }
 }
 

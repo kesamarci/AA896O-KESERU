@@ -17,6 +17,7 @@ import { TrackDeleteComponent } from './tracks/track-delete/track-delete.compone
 import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.component';
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TrackRatingComponent } from './tracks/track-rating/track-rating.compone
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

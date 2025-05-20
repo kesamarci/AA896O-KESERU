@@ -12,12 +12,12 @@ export class TtListComponent {
 tts:Tt[]=[];
 constructor(private ttService:TtService)
 {
-
+  this.loadTts() ;
 }
 loadTts(): void {
     this.ttService.getAllTts((data)=>{
       this.tts=data;
     }); 
-    this.tts = this.ttService.tts; 
+  
 }
 }

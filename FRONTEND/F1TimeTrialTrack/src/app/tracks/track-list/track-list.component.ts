@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Track } from '../../models/track';
+import { TrackService } from '../../services/track.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-list',
@@ -8,4 +11,14 @@ import { Component } from '@angular/core';
 })
 export class TrackListComponent {
 
+  tracks:Track[]=[];
+  constructor(private trackService:TrackService,private router: Router)
+  {
+    this.loadTracks();
+  }
+   loadTracks(): void {
+    this.trackService.getAllTracks((data) => {
+      this.tracks = data;
+    });
+  }
 }
