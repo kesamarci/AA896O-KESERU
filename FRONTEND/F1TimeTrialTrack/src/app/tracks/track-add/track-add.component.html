@@ -1,1 +1,17 @@
-<p>track-add works!</p>
+<div class="container mt-4">
+  <h2>Új pálya hozzáadása</h2>
+  <form (ngSubmit)="save()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Pálya neve</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="track.name" name="name" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="length" class="form-label">Pálya hossza (méter)</label>
+      <input type="number" class="form-control" id="length" [(ngModel)]="track.length" name="length" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Hozzáadás</button>
+    <a routerLink="/track-list" class="btn btn-secondary ms-2">Mégsem</a>
+  </form>
+</div>
