@@ -21,6 +21,7 @@
               <th>Időjárás</th>
               <th>Idő (ms)</th>
               <th>IdőÁtlag </th>
+              <th>RatingÁtlag </th>
               <th>Műveletek</th>
             </tr>
           </thead>
@@ -39,6 +40,7 @@
               <td>{{ tt.wheather }}</td>
               <td>{{ tt.timeInMillis }}</td>
               <td>{{ tt.averageTime }}</td>
+              <td>{{ tt.avaerageRating }}</td>
               <td>
                 <a [routerLink]="['/tt-details', tt.id]" class="btn btn-sm btn-outline-primary me-1">Részletek</a>
                 <a [routerLink]="['/tt-edit', tt.id]" class="btn btn-sm btn-outline-warning">Szerkesztés</a>
