@@ -15,10 +15,7 @@ export class TtEditComponent {
   isLoadedFromUrl: boolean = false;
 
   constructor(
-    private ttService: TtService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
+    private ttService: TtService, private router: Router,private route: ActivatedRoute) {
     const idFromUrl = this.route.snapshot.paramMap.get('id');
     if (idFromUrl) {
       this.isLoadedFromUrl = true;
