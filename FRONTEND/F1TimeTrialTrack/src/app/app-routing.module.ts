@@ -13,6 +13,7 @@ import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.compo
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { TrackDeleteComponent } from './tracks/track-delete/track-delete.component';
 import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
+import { TtschartComponent } from './ttschart/ttschart.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'track-edit/:id', component: TrackEditComponent },
   { path: 'track-delete', component: TrackDeleteComponent },
   { path: 'track-rating', component: TrackRatingComponent },
+    { path: 'ttschart', component: TtschartComponent },
 
 ]
 

@@ -1,0 +1,43 @@
+<div class="container my-4" *ngIf="barChartConfig && lineChartConfig">
+
+  <!-- Bar chart card -->
+  <div class="row mb-5 justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Average Rating (Bar Chart)</h4>
+        </div>
+        <div class="card-body">
+          <canvas baseChart
+                  [data]="barChartConfig.data"
+                  [options]="barChartConfig.options"
+                  [type]="barChartConfig.type"
+                  class="d-block mx-auto"
+                  style="max-height: 300px;">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Line chart card -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h4 class="mb-0">Average Time (Line Chart)</h4>
+        </div>
+        <div class="card-body">
+          <canvas baseChart
+                  [data]="lineChartConfig.data"
+                  [options]="lineChartConfig.options"
+                  [type]="lineChartConfig.type"
+                  class="d-block mx-auto"
+                  style="max-height: 300px;">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

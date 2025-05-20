@@ -18,6 +18,8 @@ import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.compo
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TtschartComponent } from './ttschart/ttschart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TrackDeleteComponent,
     TrackListIdComponent,
     TrackEditComponent,
-    TrackRatingComponent
+    TrackRatingComponent,
+    TtschartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
