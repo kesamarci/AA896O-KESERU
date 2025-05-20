@@ -31,8 +31,9 @@ export class TrackEditComponent {
   }
 
   onUpdate(): void {
-    this.trackService.updateTrack(this.track);
+     this.trackService.updateTrack(this.track, () => {
     this.router.navigate(['/tracks']);
-  }
+  });
+}
 }
 

@@ -23,11 +23,13 @@ export class TrackService {
       if (callback) callback();
     });
   }
-    addTrack(track: Track): void {
-    this.http.post<Track>(this.apiBaseUrl + 'Tracks', track).subscribe(() => {
-      this.loadTracks();
+    addTrack(track: Track, callback?: () => void): void {
+  this.http.post<Track>(this.apiBaseUrl + 'Tracks', track).subscribe(() => {
+    this.loadTracks(() => {
+      if (callback) callback(); // csak akkor hívjuk, ha meg van adva
     });
-  }
+  });
+}
     getAllTracks(callback: (data: Track[]) => void): void {
     this.http.get<Track[]>(this.apiBaseUrl + 'Tracks').subscribe(data => {
       const tracks = data.map(item => {
@@ -38,20 +40,24 @@ export class TrackService {
       callback(tracks);
     });
   }
-  deleteTrack(id: string): void {
-    this.http.delete(this.apiBaseUrl + 'Tracks/' + id).subscribe(() => {
-      this.loadTracks();
-    });
-  }
-    updateTrack(track: Track, callback?: () => void): void {
-    this.http.put(this.apiBaseUrl + 'Tracks/' + track.id, track).subscribe(() => {
-      const index = this.tracks.findIndex(x => x.id === track.id);
-      if (index !== -1) {
-        this.tracks[index] = track;
-      }
+  deleteTrack(id: string, callback?: () => void): void {
+  this.http.delete(this.apiBaseUrl + 'Tracks/' + id).subscribe(() => {
+    this.loadTracks(() => {
       if (callback) callback();
     });
-  }
+  });
+}
+    updateTrack(track: Track, callback?: () => void): void {
+  this.http.put(this.apiBaseUrl + 'Tracks/' + track.id, track).subscribe(() => {
+    const index = this.tracks.findIndex(x => x.id === track.id);
+    if (index !== -1) {
+      this.tracks[index] = track;
+    }
+    this.loadTracks(() => {
+      if (callback) callback();
+    });
+  });
+}
    getTrackById(id: string, callback: (data: Track) => void): void {
     this.http.get<Track>(this.apiBaseUrl + 'Tracks/' + id).subscribe(data => {
       callback(data);
