@@ -18,7 +18,7 @@ export class TtRatingComponent {
     submitRating(): void {
     if (this.newRating.tTsId && this.newRating.rating > 0) {
       this.ttRatingService.addRating(this.newRating,() => {
-        this.router.navigate(['/tt-list'])
+        this.router.navigate(['/tts'])
         this.newRating = { tTsId: '', rating: 0, comment: '' }; // Űrítés
        
       });

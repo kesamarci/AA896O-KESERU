@@ -10,6 +10,11 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrl: './tt-edit.component.sass'
 })
 export class TtEditComponent {
+  platforms: string[] = ['PC', 'PlayStation', 'Xbox'];
+  tires: string[] = ['Soft', 'Medium', 'Hard', 'Wet'];
+  assists: string[] = ['None', 'Medium', 'Full'];
+  setups: string[] = ['Default', 'Custom'];
+  wheathers: string[] = ['Clear', 'Rainy', 'Overcast'];
   tt: Tt = new Tt();
   id: string = '';
   isLoadedFromUrl: boolean = false;
@@ -31,9 +36,12 @@ export class TtEditComponent {
     });
   }
 
-  onUpdate(): void {
-  this.ttService.updateTt(this.tt);
-  this.router.navigate(['/tts']);
+   onUpdate(): void {
+    this.ttService.updateTt(this.tt, () => {
+      
+      this.router.navigate(['/tts']);
+    });
+  }
 }
-}
+
 

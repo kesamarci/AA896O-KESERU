@@ -12,6 +12,6 @@ export class Tt {
     setup: string = '';
     wheather: string = '';
     averageTime:number=0;
-    avaerageRating:string='';
+    avaerageRating:number=0;
     constructor(){}
 }

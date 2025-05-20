@@ -17,9 +17,14 @@ export class TtAddComponent {
   wheathers: string[] = ['Clear', 'Rainy', 'Overcast'];
   newTt:Tt=new Tt();
   constructor(private ttService:TtService,private router: Router)
-  {}
+  {
+     this.newTt.date = new Date().toISOString().substring(0, 10);
+  }
   onSubmit(): void {
-    this.ttService.addTt(this.newTt);
-    this.router.navigate(['/tts']);
+    this.ttService.addTt(this.newTt,()=>
+    {
+      this.router.navigate(['/tts']);
+    });
+    
 }
 }

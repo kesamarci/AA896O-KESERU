@@ -34,29 +34,39 @@
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Platform:</label>
-      <input type="text" class="form-control" [(ngModel)]="tt.platform" />
-    </div>
+  <label class="form-label">Platform</label>
+  <select class="form-select" [(ngModel)]="tt.platform" name="platform" required>
+    <option *ngFor="let p of platforms" [value]="p">{{ p }}</option>
+  </select>
+</div>
 
-    <div class="mb-3">
-      <label class="form-label">Gumi:</label>
-      <input type="text" class="form-control" [(ngModel)]="tt.tire" />
-    </div>
+ <div class="mb-3">
+  <label class="form-label">Tire</label>
+  <select class="form-select" [(ngModel)]="tt.tire" name="tire">
+    <option *ngFor="let t of tires" [value]="t">{{ t }}</option>
+  </select>
+</div>
 
-    <div class="mb-3">
-      <label class="form-label">Segítség:</label>
-      <input type="text" class="form-control" [(ngModel)]="tt.assist" />
-    </div>
+  <div class="mb-3">
+  <label class="form-label">Assist</label>
+  <select class="form-select" [(ngModel)]="tt.assist" name="assist">
+    <option *ngFor="let a of assists" [value]="a">{{ a }}</option>
+  </select>
+</div>
 
-    <div class="mb-3">
-      <label class="form-label">Setup:</label>
-      <input type="text" class="form-control" [(ngModel)]="tt.setup" />
-    </div>
+  <div class="mb-3">
+  <label class="form-label">Setup</label>
+  <select class="form-select" [(ngModel)]="tt.setup" name="setup">
+    <option *ngFor="let s of setups" [value]="s">{{ s }}</option>
+  </select>
+</div>
 
-    <div class="mb-3">
-      <label class="form-label">Időjárás:</label>
-      <input type="text" class="form-control" [(ngModel)]="tt.wheather" />
-    </div>
+  <div class="mb-3">
+  <label class="form-label">Wheather</label>
+  <select class="form-select" [(ngModel)]="tt.wheather" name="wheather">
+    <option *ngFor="let w of wheathers" [value]="w">{{ w }}</option>
+  </select>
+</div>
 
     <button class="btn btn-success" (click)="onUpdate()">Mentés</button>
   </div>

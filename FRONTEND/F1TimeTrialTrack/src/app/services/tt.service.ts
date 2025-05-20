@@ -20,12 +20,12 @@ export class TtService {
       this.tts = data;
     });
   }
-  addTt(tt: Tt): void {
-    this.http.post(this.apiBaseUrl + 'TTs', tt).subscribe(() => {
-      this.loadTts();
-    });
-  }
-
+  addTt(tt: Tt, callback?: () => void): void {
+  this.http.post(this.apiBaseUrl + 'TTs', tt).subscribe(() => {
+    this.loadTts();
+    if (callback) callback();
+  });
+}
   getAllTts(callback: (data: Tt[]) => void): void {
   this.http.get<Tt[]>(this.apiBaseUrl + 'TTs').subscribe(data => {
     const tts = data.map(item => {
@@ -52,17 +52,15 @@ export class TtService {
 
  updateTt(tt: Tt, callback?: () => void): void {
   this.http.put(this.apiBaseUrl + 'TTs/' + tt.id, tt).subscribe(() => {
-    const index = this.tts.findIndex(x => x.id === tt.id);
-    if (index !== -1) {
-      this.tts[index] = tt;
-    }
-    if (callback) callback(); // csak ha meg van adva
+    this.loadTts();  // újratöltjük az egész listát
+    if (callback) callback();
   });
 }
 
-  deleteTt(id: string): void {
-    this.http.delete(this.apiBaseUrl + 'TTs/' + id).subscribe(() => {
-      this.loadTts();
-    });
-  }
+  deleteTrack(id: string, callback?: () => void): void {
+  this.http.delete(this.apiBaseUrl + 'Tracks/' + id).subscribe(() => {
+    this.loadTts();
+    if (callback) callback();
+  });
+}
 }

@@ -15,7 +15,7 @@ import { TrackDeleteComponent } from './tracks/track-delete/track-delete.compone
 import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
 
 const routes: Routes = [ 
-  { path: 'tts', component: TtListComponent , runGuardsAndResolvers: 'always' },
+  { path: 'tts', component: TtListComponent },
   { path: 'tt-add', component: TtAddComponent },
   { path: '', redirectTo: '/tts', pathMatch: 'full' },
   { path: 'tt-details', component: TtListIdComponent }, 

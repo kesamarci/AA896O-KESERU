@@ -15,11 +15,8 @@ export class TtDeleteComponent {
 
     }
      onDelete(): void {
-    if (this.id) {
-      this.ttService.deleteTt(this.id);
-      this.router.navigate(['/tts']);  
-    } else {
-      alert('Adj meg egy érvényes ID-t!');
-    }
+    this.ttService.deleteTrack(this.id, () => {
+      this.router.navigate(['/tracks']);
+    });
   }
 }
