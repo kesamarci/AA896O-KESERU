@@ -28,10 +28,7 @@ export class TtEditComponent {
   }
 
   loadTtById(): void {
-    if (!this.id) {
-      alert('Kérlek adj meg egy érvényes ID-t!');
-      return;
-    }
+    
     this.ttService.getTtById(this.id, (data) => {
       this.tt = data;
     });

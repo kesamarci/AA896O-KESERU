@@ -1,1 +1,36 @@
-<p>track-list-id works!</p>
+<div class="container mt-4">
+
+  <div class="input-group mb-3" *ngIf="!trackdetails">
+    <input type="text" [(ngModel)]="id" class="form-control" placeholder="Add meg az ID-t">
+    <button class="btn btn-primary" (click)="loadTrackDetailsById(id)">Betöltés</button>
+  </div>
+
+  <div *ngIf="trackdetails" class="card">
+    <div class="card-header">
+      <h5>Pálya részletek: {{ trackdetails.name }} (ID: {{ trackdetails.id }})</h5>
+    </div>
+    <div class="card-body">
+      <p><strong>Hossz:</strong> {{ trackdetails.length }} m</p>
+      <p><strong>Értékelések száma:</strong> {{ trackdetails.ratingCount }}</p>
+      <p><strong>Átlag értékelés:</strong> {{ trackdetails.averageRating | number:'1.1-2' }}</p>
+
+      <hr>
+
+      <div *ngIf="trackdetails.ratings?.length">
+        <h6>Értékelések:</h6>
+        <ul class="list-group">
+          <li *ngFor="let r of trackdetails.ratings" class="list-group-item">
+            <strong>Értékelés:</strong> {{ r.rating }}/10<br>
+            <strong>Komment: </strong> <em>{{ r.comment }}</em><br>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="!trackdetails.ratings || trackdetails.ratings.length === 0">
+        <p class="text-muted">Nincsenek értékelések még.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -8,6 +8,8 @@ import { TtEditComponent } from './tts/tt-edit/tt-edit.component';
 import { TtRatingComponent } from './tts/tt-rating/tt-rating.component';
 import { TrackAddComponent } from './tracks/track-add/track-add.component';
 import { TrackListComponent } from './tracks/track-list/track-list.component';
+import { Trackdetails } from './models/trackdetails';
+import { TrackListIdComponent } from './tracks/track-list-id/track-list-id.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
@@ -21,6 +23,10 @@ const routes: Routes = [
   { path: 'tt-rating', component: TtRatingComponent },
   { path: 'track-add', component: TrackAddComponent },
   { path: 'tracks', component: TrackListComponent },
+  { path: 'track-details', component: TrackListIdComponent },
+  { path: 'track-details/:id', component: TrackListIdComponent },
+
+
 ]
 
 @NgModule({
