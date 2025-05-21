@@ -24,7 +24,7 @@ export class TrackListComponent {
   }
   deleteTrack(id: string): void {
     this.trackService.deleteTrack(id, () => {
-      this.loadTracks(); // újratölti a listát törlés után
+      this.loadTracks();
     });
   }
 }

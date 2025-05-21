@@ -26,7 +26,7 @@ export class TrackService {
     addTrack(track: Track, callback?: () => void): void {
   this.http.post<Track>(this.apiBaseUrl + 'Tracks', track).subscribe(() => {
     this.loadTracks(() => {
-      if (callback) callback(); // csak akkor hívjuk, ha meg van adva
+      if (callback) callback(); 
     });
   });
 }

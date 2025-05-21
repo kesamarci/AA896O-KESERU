@@ -16,7 +16,7 @@ id: string = '';
     }
      onDelete(): void {
     this.trackService.deleteTrack(this.id, () => {
-      this.router.navigate(['/tracks']); // csak akkor megy vissza, ha törlés kész
+      this.router.navigate(['/tracks']); 
     });
   }
 }

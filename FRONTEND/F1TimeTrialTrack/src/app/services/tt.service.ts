@@ -53,7 +53,7 @@ export class TtService {
 
  updateTt(tt: Tt, callback?: () => void): void {
   this.http.put(this.apiBaseUrl + 'TTs/' + tt.id, tt).subscribe(() => {
-    this.loadTts();  // újratöltjük az egész listát
+    this.loadTts(); 
     if (callback) callback();
   });
 }
