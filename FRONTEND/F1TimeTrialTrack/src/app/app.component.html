@@ -1,57 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">KESApp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">KESApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <!-- Tracks dropdown -->
-        <li ngbDropdown class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="tracksDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Tracks
-          </a>
-          <ul ngbDropdownMenu aria-labelledby="tracksDropdown" class="dropdown-menu">
-           <li><a class="dropdown-item" routerLink="/track-add">Add</a></li>
-            <li><a class="dropdown-item" routerLink="/tracks">List</a></li>
-            <li><a class="dropdown-item" routerLink="/track-details">ListID</a></li>
-            <li><a class="dropdown-item" routerLink="/track-edit">Szerkeszt</a></li>
-            <li><a class="dropdown-item" routerLink="/track-delete">Törlés</a></li>
-            <li><a class="dropdown-item" routerLink="/track-rating">Ratingelés</a></li>
-
-            <!-- További Tracks menüpontok ide -->
-          </ul>
-        </li>
-
-        <!-- TTs dropdown -->
-        <li ngbDropdown class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="ttsDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            TTs
-          </a>
-          <ul ngbDropdownMenu aria-labelledby="ttsDropdown" class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/tt-add">Add</a></li>
-            <li><a class="dropdown-item" routerLink="/tts">List</a></li>
-            <li><a class="dropdown-item" routerLink="/tt-details">ListID</a></li>
-            <li><a class="dropdown-item" routerLink="/tt-edit">Szerkeszt</a></li>
-            <li><a class="dropdown-item" routerLink="/tt-delete">Törlés</a></li>
-            <li><a class="dropdown-item" routerLink="/tt-rating">Ratingelés</a></li>
-            
-            <!-- További TTs menüpontok ide -->
-          </ul>
-        </li>
-        <li ngbDropdown class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"routerLink="/ttschart" ngbDropdownToggle id="ttsChartDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-           Charts
-          </a>
-           </li>
-      </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Tracks dropdown -->
+          <li ngbDropdown class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle id="tracksDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Tracks
+            </a>
+            <ul ngbDropdownMenu aria-labelledby="tracksDropdown" class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/track-add">Add</a></li>
+              <li><a class="dropdown-item" routerLink="/tracks">List</a></li>
+              <li><a class="dropdown-item" routerLink="/track-details">ListID</a></li>
+              <li><a class="dropdown-item" routerLink="/track-edit">Szerkeszt</a></li>
+              <li><a class="dropdown-item" routerLink="/track-delete">Törlés</a></li>
+              <li><a class="dropdown-item" routerLink="/track-rating">Ratingelés</a></li>
+            </ul>
+          </li>
+          <!-- TTs dropdown -->
+          <li ngbDropdown class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle id="ttsDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              TTs
+            </a>
+            <ul ngbDropdownMenu aria-labelledby="ttsDropdown" class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/tt-add">Add</a></li>
+              <li><a class="dropdown-item" routerLink="/tts">List</a></li>
+              <li><a class="dropdown-item" routerLink="/tt-details">ListID</a></li>
+              <li><a class="dropdown-item" routerLink="/tt-edit">Szerkeszt</a></li>
+              <li><a class="dropdown-item" routerLink="/tt-delete">Törlés</a></li>
+              <li><a class="dropdown-item" routerLink="/tt-rating">Ratingelés</a></li>
+            </ul>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" routerLink="/ttschart" ngbDropdownToggle id="ttsChartDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+             Charts
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Itt jön majd az aktuális komponens nézet -->
-<div class="container mt-4">
-  <router-outlet></router-outlet>
+  <!-- Tartalom, ami kitölti a helyet -->
+  <main class="flex-grow-1 container mt-4">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+  
 </div>
