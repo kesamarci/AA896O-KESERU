@@ -15,11 +15,12 @@ export class TtService {
   constructor(private http: HttpClient) { 
     this.loadTts();
   }
-  loadTts(): void {
-    this.http.get<Tt[]>(this.apiBaseUrl + 'TTs').subscribe(data => {
-      this.tts = data;
-    });
-  }
+  loadTts(callback?: () => void): void {
+  this.http.get<Tt[]>(this.apiBaseUrl + 'TTs').subscribe(data => {
+    this.tts = data;
+    if (callback) callback();
+  });
+}
   addTt(tt: Tt, callback?: () => void): void {
   this.http.post(this.apiBaseUrl + 'TTs', tt).subscribe(() => {
     this.loadTts();

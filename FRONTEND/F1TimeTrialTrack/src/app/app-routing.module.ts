@@ -14,11 +14,12 @@ import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { TrackDeleteComponent } from './tracks/track-delete/track-delete.component';
 import { TrackRatingComponent } from './tracks/track-rating/track-rating.component';
 import { TtschartComponent } from './ttschart/ttschart.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [ 
   { path: 'tts', component: TtListComponent },
   { path: 'tt-add', component: TtAddComponent },
-  { path: '', redirectTo: '/tts', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
   { path: 'tt-details', component: TtListIdComponent }, 
   { path: 'tt-details/:id', component: TtListIdComponent }, 
   { path: 'tt-edit', component: TtEditComponent }, 

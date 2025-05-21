@@ -1,0 +1,53 @@
+<div class="container my-5">
+  <!-- Hero section -->
+  <div class="jumbotron text-white bg-dark rounded p-5 mb-5 shadow-lg text-center">
+    <h1 class="display-4">Üdvözöl a Formula Track Manager!</h1>
+    <p class="lead">Kezeld a pályákat, időmérőket és értékeléseket egy helyen.</p>
+    <hr class="my-4 bg-light">
+    <p>Fedezd fel a legújabb statisztikákat és grafikonokat, vagy szerkeszd a meglévő adatokat könnyedén.</p>
+    <a class="btn btn-danger btn-lg mt-3" routerLink="/tts" role="button">Időmérők megtekintése</a>
+  </div>
+
+  <div class="row text-center">
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Pályák száma</h5>
+        <p class="display-6 text-primary">{{ totalTracks }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Átlagos időmérő idő</h5>
+        <p class="display-6 text-success">{{ averageTtTime | number:'1.2-2' }} mp</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Legjobb pálya értékelés</h5>
+        <p class="display-6 text-warning">{{ bestTrackRating | number:'1.2-2' }}/10</p>
+         <small class="text-muted">({{ bestTrackName }})</small>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Hírek vagy leírás -->
+  <div class="row">
+    <div class="col-lg-8">
+      <h3>Hírek</h3>
+      <p>A rendszer lehetőséget ad új pályák hozzáadására, meglévők szerkesztésére és törlésére. A versenyzők teljesítménye statisztikákon és grafikonokon keresztül vizsgálható.</p>
+    </div>
+    <div class="col-lg-4">
+      <h3>Hasznos linkek</h3>
+      <ul class="list-group">
+        <li class="list-group-item"><a routerLink="/tracks">Pályakezelés</a></li>
+        <li class="list-group-item"><a routerLink="/tts">Időmérők</a></li>
+        <li class="list-group-item"><a routerLink="/ttschart">Diagrammok</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

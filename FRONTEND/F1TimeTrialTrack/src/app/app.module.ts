@@ -20,6 +20,7 @@ import { TrackRatingComponent } from './tracks/track-rating/track-rating.compone
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TtschartComponent } from './ttschart/ttschart.component';
 import { NgChartsModule } from 'ng2-charts';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NgChartsModule } from 'ng2-charts';
     TrackListIdComponent,
     TrackEditComponent,
     TrackRatingComponent,
-    TtschartComponent
+    TtschartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

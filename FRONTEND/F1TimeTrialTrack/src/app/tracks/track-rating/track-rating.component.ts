@@ -18,7 +18,7 @@ export class TrackRatingComponent {
     submitRating(): void {
     if (this.newRating.trackId && this.newRating.rating > 0) {
       this.trackRatingService.addRating(this.newRating,() => {
-        this.router.navigate(['/track-list'])
+        this.router.navigate(['/tracks'])
         this.newRating = { trackId: '', rating: 0, comment: '' }; // Űrítés
        
       });
