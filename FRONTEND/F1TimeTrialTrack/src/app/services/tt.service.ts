@@ -58,10 +58,13 @@ export class TtService {
   });
 }
 
-  deleteTrack(id: string, callback?: () => void): void {
-  this.http.delete(this.apiBaseUrl + 'Tracks/' + id).subscribe(() => {
-    this.loadTts();
-    if (callback) callback();
+
+  deleteTt(id: string, callback?: () => void): void {
+  this.http.delete(this.apiBaseUrl + 'TTs/' + id).subscribe(() => {
+    this.loadTts(()=>{
+      if (callback) callback();
+    });
+    
   });
 }
 }

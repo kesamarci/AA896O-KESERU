@@ -15,8 +15,8 @@ export class TtDeleteComponent {
 
     }
      onDelete(): void {
-    this.ttService.deleteTrack(this.id, () => {
-      this.router.navigate(['/tracks']);
+    this.ttService.deleteTt(this.id, () => {
+      this.router.navigate(['/tts']);
     });
   }
 }
